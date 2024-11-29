@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./icon.png">
+    <title>Information</title>
+    <style>
+        body {
+            margin: 0px;
+            background-color: #FBFBFB;
+        }
+        div {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            background: transparent url(./error.jpg) no-repeat;
+            background-size: 100%;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+    <script>
+
+        const software = "https://aalem-software.blogspot.com";
+        const iqtbasate = "https://iqtbasate.blogspot.com";
+
+        const PageType = window.location.href;
+        const PageNumber = location.hash.substring(1).match(/\d+(\.\d+)?/);
+        var url = '';
+
+        if (PageType.includes("#soft")) {
+            if(PageNumber) {
+                url = software + `/2024/10/blog-post_${parseInt(PageNumber)}.html?m=1`;
+            } else {
+                url = software;
+            }
+        } else if (PageType.includes("#iqt")) {
+            if(PageNumber) {
+                url = iqtbasate + `/2024/11/blog-post_${parseInt(PageNumber)}.html?m=1`;
+            } else {
+                url = iqtbasate;
+            }
+        }
+
+        if (url.includes("blogspot.com")) {
+            location.replace(url);
+        } else {
+            document.querySelector("div").style.display = "flex";
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>
